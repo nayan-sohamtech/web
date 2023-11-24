@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 
+enum Options { profile, email, settings }
+
+var appBarHeight = AppBar().preferredSize.height;
 AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
     AppBar(
       leading: !ResponsiveWidget.isSmallScreen(context)
@@ -35,8 +38,8 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          if (!ResponsiveWidget.isSmallScreen(context))
-            Spacer(flex: ResponsiveWidget.isLargeScreen(context) ? 2 : 1),
+          // if (!ResponsiveWidget.isSmallScreen(context))
+          Spacer(flex: ResponsiveWidget.isLargeScreen(context) ? 2 : 1),
           const Expanded(
             child: SearchField(),
           ),
@@ -71,11 +74,31 @@ class ProfileCard extends StatelessWidget {
             "assets/image/profile_pic.png",
             //height: 38,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-            child: Text("Angelina Joli"),
+          if (!ResponsiveWidget.isSmallScreen(context))
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+              child: Text("Angelina Joli"),
+            ),
+          PopupMenuButton(
+            color: bgColor,
+            icon: const Icon(
+              Icons.keyboard_arrow_down,
+              color: Colors.white,
+            ),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            splashRadius: 1,
+            offset: Offset(0.0, appBarHeight),
+            itemBuilder: (context) => [
+              _popupMenuItem(
+                  "Profile", Icons.account_box, Options.profile.index),
+              _popupMenuItem("Email", Icons.email, Options.email.index),
+              _popupMenuItem(
+                  "Settings", Icons.settings, Options.settings.index),
+            ],
           ),
-          const Icon(Icons.keyboard_arrow_down),
+          //const Icon(Icons.keyboard_arrow_down),
         ],
       ),
     );
@@ -120,4 +143,12 @@ class SearchField extends StatelessWidget {
       ),
     );
   }
+}
+
+PopupMenuItem _popupMenuItem(String title, IconData iconData, int position) {
+  return PopupMenuItem(
+    child: Row(
+      children: [Text(title)],
+    ),
+  );
 }
