@@ -6,7 +6,6 @@ import 'package:flutter_web_dashboard/widgets/side_menu.dart';
 
 import 'widgets/top_nav.dart';
 
-
 class SiteLayout extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
@@ -16,17 +15,16 @@ class SiteLayout extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       extendBodyBehindAppBar: true,
-      appBar:  topNavigationBar(context, scaffoldKey),
+      appBar: topNavigationBar(context, scaffoldKey),
       drawer: const Drawer(
         child: SideMenu(),
       ),
       body: ResponsiveWidget(
-        largeScreen: const LargeScreen(),
-      smallScreen: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: localNavigator(),
-      )
-      ),
+          largeScreen: const LargeScreen(),
+          smallScreen: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: localNavigator(),
+          )),
     );
   }
 }

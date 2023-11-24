@@ -31,17 +31,27 @@ class MyFiles extends StatelessWidget {
           ],
         ),
         const SizedBox(height: defaultPadding),
-        if (ResponsiveWidget.isLargeScreen(context) ||
-            ResponsiveWidget.isMediumScreen(context))
-          if (ResponsiveWidget.isCustomSize(context))
-            FileInfoGridView(childAspectRation: size.width < 1400 ? 1.1 : 1.4)
-          else
-            const FileInfoGridView()
-        else
-          FileInfoGridView(
+        ResponsiveWidget(
+          smallScreen: FileInfoGridView(
             crossAxixCount: size.width < 650 ? 2 : 4,
             childAspectRation: size.width < 650 ? 1.3 : 1,
-          )
+          ),
+          mediumScreen: const FileInfoGridView(),
+          largeScreen: FileInfoGridView(
+            childAspectRation: size.width < 1400 ? 1.1 : 1.4,
+          ),
+        ),
+        // if (ResponsiveWidget.isLargeScreen(context) ||
+        //     ResponsiveWidget.isMediumScreen(context))
+        //   if (ResponsiveWidget.isCustomSize(context))
+        //     FileInfoGridView(childAspectRation: size.width < 1400 ? 1.1 : 1.4)
+        //   else
+        //     const FileInfoGridView()
+        // else
+        //   FileInfoGridView(
+        //     crossAxixCount: size.width < 650 ? 2 : 4,
+        //     childAspectRation: size.width < 650 ? 1.3 : 1,
+        //   )
       ],
     );
   }
