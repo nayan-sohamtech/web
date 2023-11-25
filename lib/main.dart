@@ -3,9 +3,9 @@ import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/controllers/menu_controller.dart'
     as menu_controller;
 import 'package:flutter_web_dashboard/controllers/navigation_controller.dart';
-import 'package:flutter_web_dashboard/layout.dart';
 import 'package:flutter_web_dashboard/pages/404/error.dart';
 import 'package:flutter_web_dashboard/pages/authentication/authentication.dart';
+import 'package:flutter_web_dashboard/pages/profile/profile_page.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: rootRoute,
           page: () {
-            return SiteLayout();
+            return ProfilePage();
           },
         ),
         GetPage(
@@ -47,6 +47,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.poppinsTextTheme(
           Theme.of(context).textTheme.apply(bodyColor: Colors.white),
         ),
+        //dividerTheme: DividerThemeData(color: Colors.white),
         scaffoldBackgroundColor: bgColor,
         pageTransitionsTheme: const PageTransitionsTheme(
           builders: {
