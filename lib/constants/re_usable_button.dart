@@ -25,3 +25,30 @@ Widget logoButton(String path) => Container(
         onPressed: () {},
       ),
     );
+
+Widget normalButton(String label, Color txtcolor, String path, Color iconColor,
+        Color backColor) =>
+    InkWell(
+      onTap: () {},
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 3),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+        decoration: BoxDecoration(
+            color: backColor, borderRadius: BorderRadius.circular(5)),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            if (path != '') Image.asset(path, color: iconColor, width: 15),
+            if (path != '') const SizedBox(width: 5),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 10,
+                color: txtcolor,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );

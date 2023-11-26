@@ -4,7 +4,6 @@ import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 
 class HeaderPanel extends StatelessWidget {
   late bool isScreen;
-
   @override
   Widget build(BuildContext context) {
     isScreen = ResponsiveWidget.isSmallScreen(context) ? true : false;

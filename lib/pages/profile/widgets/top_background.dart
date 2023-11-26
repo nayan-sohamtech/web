@@ -11,7 +11,10 @@ class TopBackground extends StatelessWidget {
     return Container(
       width: width,
       height: ResponsiveWidget.isSmallScreen(context) ? 300 : 450,
-      child: Image.asset("assets/images/mount.png"),
+      child: Image.asset(
+        "assets/images/mount.png",
+        fit: BoxFit.cover,
+      ),
     );
   }
 }

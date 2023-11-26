@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 import 'package:flutter_web_dashboard/pages/profile/widgets/profile_design.dart';
-import 'package:flutter_web_dashboard/widgets/top_nav.dart';
 
 class ProfilePanel extends StatelessWidget {
   const ProfilePanel({super.key});
@@ -14,7 +13,22 @@ class ProfilePanel extends StatelessWidget {
     return Container(
       margin: EdgeInsets.fromLTRB(isScreen ? 15 : width / 10,
           isScreen ? 0 : 150, isScreen ? 15 : width / 10, 10),
-      child: Stack(children: [ProfileDesign()]),
+      child: Stack(
+        children: [
+          const ProfileDesign(),
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              child: profileImage(),
+            ),
+          ),
+        ],
+      ),
     );
   }
+
+  Widget profileImage() => const CircleAvatar(
+        radius: 70,
+        backgroundImage: AssetImage("assets/images/person.png"),
+      );
 }

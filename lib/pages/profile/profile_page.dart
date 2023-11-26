@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/pages/profile/widgets/header_panel.dart';
+import 'package:flutter_web_dashboard/pages/profile/widgets/profile_panel.dart';
 import 'package:flutter_web_dashboard/pages/profile/widgets/top_background.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -11,12 +12,15 @@ class ProfilePage extends StatelessWidget {
       body: SafeArea(
           child: Stack(
         children: [
-          TopBackground(),
+          const TopBackground(),
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [HeaderPanel()],
+              children: [
+                HeaderPanel(),
+                const ProfilePanel(),
+              ],
             ),
           )
         ],
