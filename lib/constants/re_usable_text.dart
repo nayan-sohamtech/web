@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_dashboard/constants/style.dart';
 
 Widget largeBoldTextBlack(String label) => Text(
       label,
       style: TextStyle(
         fontSize: 25,
-        color: Colors.grey[700],
+        color: light,
         fontWeight: FontWeight.w700,
         letterSpacing: 1,
       ),
     );
 
-Widget normalGreyText(String label) => Text(
+Widget normalGreyText(String label, Color color) => Text(
       label,
       overflow: TextOverflow.visible,
       textAlign: TextAlign.center,
@@ -18,7 +19,7 @@ Widget normalGreyText(String label) => Text(
         fontSize: 14,
         wordSpacing: 1,
         letterSpacing: .5,
-        color: Colors.grey[500],
+        color: color,
       ),
     );
 
@@ -26,7 +27,7 @@ Widget boldBlackText(String label) => Text(
       label,
       style: TextStyle(
         fontSize: 20,
-        color: Colors.grey[800],
+        color: Colors.white,
         fontWeight: FontWeight.w500,
         letterSpacing: 1,
       ),

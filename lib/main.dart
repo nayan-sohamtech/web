@@ -47,6 +47,9 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.poppinsTextTheme(
           Theme.of(context).textTheme.apply(bodyColor: Colors.white),
         ),
+        // splashColor: Colors.transparent,
+        // highlightColor: Colors.transparent,
+        // splashFactory: NoSplash.splashFactory,
         //dividerTheme: DividerThemeData(color: Colors.white),
         scaffoldBackgroundColor: bgColor,
         pageTransitionsTheme: const PageTransitionsTheme(

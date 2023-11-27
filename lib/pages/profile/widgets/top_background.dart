@@ -8,9 +8,9 @@ class TopBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return Container(
+    return SizedBox(
       width: width,
-      height: ResponsiveWidget.isSmallScreen(context) ? 300 : 450,
+      height: ResponsiveWidget.isSmallScreen(context) ? 300 : 750,
       child: Image.asset(
         "assets/images/mount.png",
         fit: BoxFit.cover,

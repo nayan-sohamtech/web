@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_web_dashboard/constants/style.dart';
 
 Widget iconLabelButtons(String lebel, String path) => TextButton.icon(
       onPressed: () => print('pressed'),
       icon: SvgPicture.asset(
         path,
         width: 20,
-        //colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+        colorFilter: const ColorFilter.mode(light, BlendMode.srcIn),
       ),
       label: Text(
         lebel,
@@ -20,7 +21,7 @@ Widget logoButton(String path) => Container(
         icon: SvgPicture.asset(
           path,
           width: 15,
-          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          colorFilter: const ColorFilter.mode(light, BlendMode.srcIn),
         ),
         onPressed: () {},
       ),
@@ -52,3 +53,20 @@ Widget normalButton(String label, Color txtcolor, String path, Color iconColor,
         ),
       ),
     );
+
+Widget textButtons(String label, Color color) => TextButton(
+      child: Text(
+        label,
+        style: TextStyle(
+            color: color,
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+            letterSpacing: .5),
+      ),
+      onPressed: () {},
+    );
+
+Widget colorLogoButton(String path) => Container(
+    margin: const EdgeInsets.symmetric(horizontal: 3),
+    child:
+        IconButton(icon: SvgPicture.asset(path, width: 20), onPressed: () {}));

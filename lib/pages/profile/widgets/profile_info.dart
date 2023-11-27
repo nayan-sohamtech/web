@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/constants/re_usable_button.dart';
 import 'package:flutter_web_dashboard/constants/re_usable_text.dart';
+import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 
 class ProfileInFo extends StatelessWidget {
   String data =
       'An artist of considerable range, Jenna the name taken by Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.';
-  late bool isScreen;
+  late bool isMobile;
 
   @override
   Widget build(BuildContext context) {
-    isScreen = ResponsiveWidget.isSmallScreen(context) ? true : false;
+    isMobile = ResponsiveWidget.isSmallScreen(context) ? true : false;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -25,13 +26,12 @@ class ProfileInFo extends StatelessWidget {
               socialValue('Photos', 10),
               socialValue('Comments', 86),
               const Spacer(flex: 10),
-              normalButton(
-                  'Edit', Colors.white, '', Colors.white, Colors.teal.shade300),
+              normalButton('Edit', light, '', light, primaryColor),
               const Spacer(flex: 1),
             ],
           ),
         ),
-        SizedBox(height: isScreen ? 20 : 50),
+        SizedBox(height: isMobile ? 20 : 50),
         largeBoldTextBlack('Nayan Moradiya'),
         const SizedBox(height: 10),
         Row(
@@ -41,10 +41,10 @@ class ProfileInFo extends StatelessWidget {
             Icon(
               Icons.location_pin,
               size: 20,
-              color: Colors.grey.shade400,
+              color: primaryColor,
             ),
             const SizedBox(width: 5),
-            normalGreyText('LOS ANGELES, CALIFORNIA'),
+            normalGreyText('LOS ANGELES, CALIFORNIA', lightGrey),
           ],
         ),
         const SizedBox(height: 30),
@@ -53,14 +53,35 @@ class ProfileInFo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(
-              Icons.work_outline,
+              Icons.work,
               size: 20,
-              color: Colors.grey.shade400,
+              color: primaryColor,
             ),
             const SizedBox(width: 5),
-            normalGreyText('Solution Manager - Creative Team Officer'),
+            normalGreyText(
+                'Solution Manager - Creative Team Officer', lightGrey),
           ],
         ),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.school,
+              size: 20,
+              color: primaryColor,
+            ),
+            const SizedBox(width: 5),
+            normalGreyText('University of Computer Science', lightGrey),
+          ],
+        ),
+
+        /// description
+        Divider(height: 30, thickness: 1, color: Colors.grey.shade300),
+        normalGreyText(data, lightGrey),
+        const SizedBox(height: 10),
+        textButtons('Show more', primaryColor)
       ],
     );
   }
@@ -75,7 +96,7 @@ class ProfileInFo extends StatelessWidget {
             Text(
               '$value',
               style: TextStyle(
-                color: Colors.grey[900],
+                color: light,
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
               ),
@@ -83,7 +104,7 @@ class ProfileInFo extends StatelessWidget {
             Text(
               label,
               style: TextStyle(
-                color: Colors.grey[900],
+                color: light,
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
               ),

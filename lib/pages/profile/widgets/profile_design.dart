@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_dashboard/constants/style.dart';
 
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 import 'package:flutter_web_dashboard/pages/profile/widgets/profile_info.dart';
@@ -15,7 +16,7 @@ class ProfileDesign extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(
           10, ResponsiveWidget.isSmallScreen(context) ? 80 : 20, 10, 10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: secondaryColor,
         borderRadius: BorderRadius.circular(5),
         boxShadow: [
           BoxShadow(

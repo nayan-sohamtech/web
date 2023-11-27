@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_dashboard/constants/re_usable_button.dart';
+import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 
 class HeaderPanel extends StatelessWidget {
-  late bool isScreen;
+  late bool isMobile;
   @override
   Widget build(BuildContext context) {
-    isScreen = ResponsiveWidget.isSmallScreen(context) ? true : false;
+    isMobile = ResponsiveWidget.isSmallScreen(context) ? true : false;
     double width = MediaQuery.of(context).size.width;
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: width / 10, vertical: isScreen ? 30 : 10),
-      child: isScreen
+          horizontal: width / 10, vertical: isMobile ? 30 : 10),
+      child: isMobile
           ? Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,16 +29,20 @@ class HeaderPanel extends StatelessWidget {
   Widget leftSidePanel() => Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 10),
+          //   child: IconButton(onPressed: () {Get.offAllNamed(rootRoute);}, icon: Icon(Icons.arrow_back)),
+          // ),
           const Text(
             "Timeless",
             style: TextStyle(
               fontSize: 25,
-              color: Colors.white,
+              color: light,
               fontWeight: FontWeight.w400,
               letterSpacing: 0.5,
             ),
           ),
-          isScreen
+          isMobile
               ? const Spacer(
                   flex: 1,
                 )
