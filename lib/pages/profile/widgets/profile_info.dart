@@ -11,7 +11,7 @@ class ProfileInFo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    isMobile = ResponsiveWidget.isSmallScreen(context) ? true : false;
+    isMobile = Responsive.isMobile(context) ? true : false;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [

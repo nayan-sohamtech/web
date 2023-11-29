@@ -19,9 +19,9 @@ class SiteLayout extends StatelessWidget {
       drawer: const Drawer(
         child: SideMenu(),
       ),
-      body: ResponsiveWidget(
-          largeScreen: const LargeScreen(),
-          smallScreen: Padding(
+      body: Responsive(
+          desktop: const LargeScreen(),
+          mobile: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: localNavigator(),
           )),

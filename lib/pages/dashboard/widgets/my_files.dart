@@ -11,33 +11,29 @@ class MyFiles extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "My Files",
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            ElevatedButton.icon(
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: defaultPadding * 1.5, vertical: defaultPadding),
-              ),
-              onPressed: () {},
-              icon: const Icon(Icons.add),
-              label: const Text("Add New"),
-            ),
-          ],
+        Text(
+          "My Files",
+          style: Theme.of(context).textTheme.titleMedium,
         ),
+        // ElevatedButton.icon(
+        //   style: TextButton.styleFrom(
+        //     padding: const EdgeInsets.symmetric(
+        //         horizontal: defaultPadding * 1.5, vertical: defaultPadding),
+        //   ),
+        //   onPressed: () {},
+        //   icon: const Icon(Icons.add),
+        //   label: const Text("Add New"),
+        // ),
         const SizedBox(height: defaultPadding),
-        ResponsiveWidget(
-          smallScreen: FileInfoGridView(
+        Responsive(
+          mobile: FileInfoGridView(
             crossAxixCount: size.width < 650 ? 2 : 4,
             childAspectRation: size.width < 650 ? 1.3 : 1,
           ),
-          mediumScreen: const FileInfoGridView(),
-          largeScreen: FileInfoGridView(
+          tablet: const FileInfoGridView(),
+          desktop: FileInfoGridView(
             childAspectRation: size.width < 1400 ? 1.1 : 1.4,
           ),
         ),

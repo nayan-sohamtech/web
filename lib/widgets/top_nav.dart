@@ -5,7 +5,7 @@ import 'package:flutter_web_dashboard/widgets/profile_menu_list.dart';
 
 AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
     AppBar(
-      leading: !ResponsiveWidget.isSmallScreen(context)
+      leading: !Responsive.isMobile(context) || Responsive.isTablet(context)
           ? Row(
               children: [
                 Padding(
@@ -30,14 +30,14 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
       title: Row(
         children: [
           Visibility(
-            visible: !ResponsiveWidget.isSmallScreen(context),
+            visible: !Responsive.isMobile(context),
             child: Text(
               "Dash",
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
-          //if (!ResponsiveWidget.isSmallScreen(context))
-          Spacer(flex: ResponsiveWidget.isLargeScreen(context) ? 2 : 1),
+          if (!Responsive.isMobile(context))
+            Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
           const Expanded(
             child: SearchField(),
           ),
@@ -69,10 +69,10 @@ class ProfileCard extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(
-            "assets/image/profile_pic.png",
+            "assets/images/profile_pic.png",
             //height: 38,
           ),
-          if (!ResponsiveWidget.isSmallScreen(context))
+          if (!Responsive.isMobile(context))
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
               child: Text("Angelina Joli"),

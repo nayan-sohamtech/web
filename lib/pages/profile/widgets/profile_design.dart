@@ -14,7 +14,7 @@ class ProfileDesign extends StatelessWidget {
       width: width,
       margin: const EdgeInsets.only(top: 70),
       padding: EdgeInsets.fromLTRB(
-          10, ResponsiveWidget.isSmallScreen(context) ? 80 : 20, 10, 10),
+          10, Responsive.isMobile(context) ? 80 : 20, 10, 10),
       decoration: BoxDecoration(
         color: secondaryColor,
         borderRadius: BorderRadius.circular(5),

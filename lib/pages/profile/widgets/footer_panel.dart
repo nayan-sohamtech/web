@@ -5,24 +5,24 @@ import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 
 class FooterPanel extends StatelessWidget {
-  late bool isMobile, isDesktop;
+  late bool isSmall, isLarge;
   @override
   Widget build(BuildContext context) {
-    isMobile = ResponsiveWidget.isSmallScreen(context) ? true : false;
-    isDesktop = ResponsiveWidget.isLargeScreen(context) ? true : false;
+    isSmall = Responsive.isMobile(context) ? true : false;
+    isLarge = Responsive.isDesktop(context) ? true : false;
 
     double width = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.fromLTRB(isMobile ? 15 : width / 10, isMobile ? 0 : 20,
-          isMobile ? 15 : width / 10, isMobile ? 0 : 15),
+      margin: EdgeInsets.fromLTRB(isSmall ? 15 : width / 10, isSmall ? 0 : 20,
+          isSmall ? 15 : width / 10, isSmall ? 0 : 15),
       //     EdgeInsets.symmetric(
       //   horizontal: isMobile ? 0 : width / 10,
       //   vertical: isMobile ? 0 : 20,
       // ),
-      padding: EdgeInsets.all(isMobile ? 5 : 10),
+      padding: EdgeInsets.all(isSmall ? 5 : 10),
       decoration: BoxDecoration(
         color: secondaryColor,
-        borderRadius: isMobile
+        borderRadius: isSmall
             ? const BorderRadius.only(
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),
@@ -36,7 +36,7 @@ class FooterPanel extends StatelessWidget {
           ),
         ],
       ),
-      child: isDesktop
+      child: isLarge
           ? Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -68,13 +68,13 @@ class FooterPanel extends StatelessWidget {
             const SizedBox(height: 10),
             Row(
               children: [
-                if (!isDesktop) const Spacer(flex: 1),
+                if (!isLarge) const Spacer(flex: 1),
                 floatingIconsButtons('assets/icons/facebook.svg'),
                 floatingIconsButtons('assets/icons/linkedin.svg'),
                 floatingIconsButtons('assets/icons/skype.svg'),
                 floatingIconsButtons('assets/icons/twitter.svg'),
                 floatingIconsButtons('assets/icons/youtube.svg'),
-                if (!isDesktop) const Spacer(flex: 1),
+                if (!isLarge) const Spacer(flex: 1),
               ],
             ),
           ],
@@ -97,7 +97,7 @@ class FooterPanel extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             usefulLink(),
-            isMobile ? const Spacer(flex: 1) : const SizedBox(width: 50),
+            isSmall ? const Spacer(flex: 1) : const SizedBox(width: 50),
             otherResources(),
           ],
         ),

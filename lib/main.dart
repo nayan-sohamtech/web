@@ -3,6 +3,7 @@ import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/controllers/menu_controller.dart'
     as menu_controller;
 import 'package:flutter_web_dashboard/controllers/navigation_controller.dart';
+import 'package:flutter_web_dashboard/layout.dart';
 import 'package:flutter_web_dashboard/pages/404/error.dart';
 import 'package:flutter_web_dashboard/pages/authentication/authentication.dart';
 import 'package:flutter_web_dashboard/pages/profile/profile_page.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: rootRoute,
           page: () {
-            return ProfilePage();
+            return SiteLayout();
           },
         ),
         GetPage(

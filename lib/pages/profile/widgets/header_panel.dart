@@ -4,15 +4,15 @@ import 'package:flutter_web_dashboard/constants/style.dart';
 import 'package:flutter_web_dashboard/helpers/reponsiveness.dart';
 
 class HeaderPanel extends StatelessWidget {
-  late bool isMobile;
+  late bool isSmall;
   @override
   Widget build(BuildContext context) {
-    isMobile = ResponsiveWidget.isSmallScreen(context) ? true : false;
+    isSmall = Responsive.isMobile(context) ? true : false;
     double width = MediaQuery.of(context).size.width;
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: width / 10, vertical: isMobile ? 30 : 10),
-      child: isMobile
+          horizontal: width / 10, vertical: isSmall ? 30 : 10),
+      child: isSmall
           ? Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +42,7 @@ class HeaderPanel extends StatelessWidget {
               letterSpacing: 0.5,
             ),
           ),
-          isMobile
+          isSmall
               ? const Spacer(
                   flex: 1,
                 )

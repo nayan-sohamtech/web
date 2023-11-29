@@ -23,19 +23,18 @@ class DashboardPage extends StatelessWidget {
                   child: Column(
                     children: [
                       const MyFiles(),
+                      // const SizedBox(height: defaultPadding),
+                      // const RecentFile(),
+                      // if (ResponsiveWidget.isSmallScreen(context))
                       const SizedBox(height: defaultPadding),
-                      const RecentFile(),
-                      if (ResponsiveWidget.isSmallScreen(context))
-                        const SizedBox(height: defaultPadding),
-                      if (ResponsiveWidget.isSmallScreen(context))
-                        const StorageDetails(),
+                      if (Responsive.isMobile(context)) const StorageDetails(),
                     ],
                   ),
                 ),
-                if (!ResponsiveWidget.isSmallScreen(context))
+                if (!Responsive.isMobile(context))
                   const SizedBox(width: defaultPadding),
                 // on Mobile means if the screen is less than 850 we dont want to show it
-                if (!ResponsiveWidget.isSmallScreen(context))
+                if (!Responsive.isMobile(context))
                   const Expanded(
                     flex: 2,
                     child: StorageDetails(),

@@ -50,7 +50,12 @@ class PopUpMenu extends StatelessWidget {
             leading: const Icon(Icons.person_sharp),
             title: const Text("Profile"),
             onTap: () {
-              Get.to(const ProfilePage());
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProfilePage(),
+                ),
+              );
             },
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_web_dashboard/pages/transaction/widgets/transaction_table.dart';
 
 class TransactionsPage extends StatelessWidget {
@@ -6,7 +7,19 @@ class TransactionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return
+        //  SafeArea(
+        //   child: SingleChildScrollView(
+        //     padding: const EdgeInsets.all(defaultPadding),
+        //     child: Column(children: [
+        //       const SizedBox(height: defaultPadding),
+        //       const RecentFile(),
+        //       // if (ResponsiveWidget.isSmallScreen(context))
+        //     ]),
+        //   ),
+        // );
+
+        Column(
       children: [
         Expanded(
             child: ListView(
