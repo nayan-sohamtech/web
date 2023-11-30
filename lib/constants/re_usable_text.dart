@@ -3,7 +3,7 @@ import 'package:flutter_web_dashboard/constants/style.dart';
 
 Widget largeBoldTextBlack(String label) => Text(
       label,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 25,
         color: light,
         fontWeight: FontWeight.w700,
@@ -25,7 +25,7 @@ Widget normalGreyText(String label, Color color) => Text(
 
 Widget boldBlackText(String label) => Text(
       label,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 20,
         color: Colors.white,
         fontWeight: FontWeight.w500,
@@ -42,3 +42,27 @@ Widget smallBlackText(String label) => Text(
         letterSpacing: 1,
       ),
     );
+
+Widget buildTextField1(controller, String hintText) {
+  return TextFormField(
+    controller: controller,
+    decoration: InputDecoration(
+      hintText: hintText,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+    ),
+  );
+}
+
+Widget buildTextField2(controller, String hintText) {
+  return TextFormField(
+    controller: controller,
+    decoration: InputDecoration(
+      hintText: hintText,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+    ),
+  );
+}

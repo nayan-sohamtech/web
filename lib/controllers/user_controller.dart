@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-class RowData {
-  final String title;
-  final String date;
-
-  RowData(this.title, this.date);
-}
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class RecentFileinfo {
   final String title, date, size, icon;
@@ -24,15 +18,17 @@ class FileController extends GetxController {
   TextEditingController date2Controller = TextEditingController();
   TextEditingController size2Controller = TextEditingController();
   TextEditingController icon2Controller = TextEditingController();
-  TextEditingController edit2TitleController = TextEditingController();
-  TextEditingController edit2DateController = TextEditingController();
+  TextEditingController newtitle2Controller = TextEditingController();
+  TextEditingController newdate2Controller = TextEditingController();
+  TextEditingController newsize2Controller = TextEditingController();
+  TextEditingController newicon2Controller = TextEditingController();
 
   void addRow(String title, date, size, icon) {
     demoRecentFiles
         .add(RecentFileinfo(icon: icon, title: title, date: date, size: size));
-    title2Controller.clear();
-    date2Controller.clear();
-    size2Controller.clear();
+    newtitle2Controller.clear();
+    newdate2Controller.clear();
+    newsize2Controller.clear();
     update(); // Trigger a rebuild of the UI
   }
 
@@ -101,60 +97,3 @@ class FileController extends GetxController {
     )
   ].obs;
 }
-
-//////////////////////////
-// class RecentFileinfo extends GetxController {
-//   String icon, title, date, size;
-
-//   RecentFileinfo({
-//     required this.icon,
-//     required this.title,
-//     required this.date,
-//     required this.size,
-//   });
-// }
-
-// List demoRecentFiles = [
-//   RecentFileinfo(
-//     icon: "assets/icons/xd_file.svg",
-//     title: "XD File",
-//     date: "01-03-2021",
-//     size: "3.5mb",
-//   ),
-//   RecentFileinfo(
-//     icon: "assets/icons/Figma_file.svg",
-//     title: "Figma File",
-//     date: "01-03-2021",
-//     size: "3.5mb",
-//   ),
-//   RecentFileinfo(
-//     icon: "assets/icons/Documents.svg",
-//     title: "Document",
-//     date: "01-03-2021",
-//     size: "3.5mb",
-//   ),
-//   RecentFileinfo(
-//     icon: "assets/icons/sound_file.svg",
-//     title: "Sound File",
-//     date: "01-03-2021",
-//     size: "3.5mb",
-//   ),
-//   RecentFileinfo(
-//     icon: "assets/icons/media_file.svg",
-//     title: "Media File",
-//     date: "01-03-2021",
-//     size: "3.5mb",
-//   ),
-//   RecentFileinfo(
-//     icon: "assets/icons/pdf_file.svg",
-//     title: "Sales PDF",
-//     date: "01-03-2021",
-//     size: "3.5mb",
-//   ),
-//   RecentFileinfo(
-//     icon: "assets/icons/excel_file.svg",
-//     title: "Excel File",
-//     date: "01-03-2021",
-//     size: "3.5mb",
-//   )
-// ];

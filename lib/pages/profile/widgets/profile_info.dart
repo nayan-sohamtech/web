@@ -38,7 +38,7 @@ class ProfileInFo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.location_pin,
               size: 20,
               color: primaryColor,
@@ -52,7 +52,7 @@ class ProfileInFo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.work,
               size: 20,
               color: primaryColor,
@@ -67,7 +67,7 @@ class ProfileInFo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.school,
               size: 20,
               color: primaryColor,
@@ -95,7 +95,7 @@ class ProfileInFo extends StatelessWidget {
           children: [
             Text(
               '$value',
-              style: TextStyle(
+              style: const TextStyle(
                 color: light,
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
@@ -103,7 +103,7 @@ class ProfileInFo extends StatelessWidget {
             ),
             Text(
               label,
-              style: TextStyle(
+              style: const TextStyle(
                 color: light,
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
